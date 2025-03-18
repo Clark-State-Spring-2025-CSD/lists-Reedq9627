@@ -18,3 +18,56 @@
 #Player two's highest number is 8 at index 1
 #Player one's lowest number is 1 at index 4
 #Player two's lowest number is 1 at index 5
+
+import random
+
+playerOne = []
+playerTwo = []
+
+for i in range(10):
+    playerOne.append(random.randint(1, 50))
+    playerTwo.append(random.randint(1, 50))
+                     
+playerOneWins = 0
+playerTwoWins = 0
+
+for i in range(10):
+    if playerOne[i] > playerTwo[i]:
+        playerOneWins += 1
+    elif playerTwo[i] > playerOne[i]:
+        playerTwoWins += 1
+
+playerOneHigh = playerOne[0]
+playerOneLow = playerOne[0]
+playerOneHighIndex = 0
+playerOneLowIndex = 0
+
+for i in range(10):
+    if playerOne[i] > playerOneHigh:
+        playerOneHigh = playerOne[i]
+        playerOneHighIndex = i
+    if playerOne[i] < playerOneLow:
+        playerOneLow = playerOne[i]
+        playerOneLowIndex = i
+
+playerTwoHigh = playerTwo[0]
+playerTwoLow = playerTwo[0]
+playerTwoHighIndex = 0
+playerTwoLowIndex = 0
+
+for i in range(10):
+    if playerTwo[i] > playerTwoHigh:
+        playerTwoHigh = playerTwo[i]
+        playerTwoHighIndex = i
+    if playerTwo[i] < playerTwoLow:
+        playerTwoLow = playerTwo[i]
+        playerTwoLowIndex = i
+
+print("Player One's numbers:", playerOne)
+print("Player Two's numbers:", playerTwo)
+print ("Player One won", playerOneWins, "times.")
+print("Player Two won", playerTwoWins, "times.")
+print("Player One's highest number is", playerOneHigh, "at index", playerOneHighIndex)
+print("Player Two's highest number is", playerTwoHigh, "at index", playerTwoHighIndex)
+print("Player One's lowest number is", playerOneLow, "at index", playerOneLowIndex)
+print("Player Two's lowest number is", playerTwoLow, "at index", playerTwoLowIndex)
